@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -159,6 +159,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c1f6e5db4b32a44bd0c64f4474866f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &564853468 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114707098871666112, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
+    type: 2}
+  m_PrefabInternal: {fileID: 564853467}
+  m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
 --- !u!4 &681151534 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4188743665041156, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
@@ -219,6 +225,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4188743665041156, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
     type: 2}
   m_PrefabInternal: {fileID: 899779342}
+--- !u!114 &899779344 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114707098871666112, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
+    type: 2}
+  m_PrefabInternal: {fileID: 899779342}
+  m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
 --- !u!1001 &1000516128
 Prefab:
   m_ObjectHideFlags: 0
@@ -274,6 +286,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4188743665041156, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
     type: 2}
   m_PrefabInternal: {fileID: 1000516128}
+--- !u!114 &1000516130 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114707098871666112, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1000516128}
+  m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
 --- !u!1001 &1133449576
 Prefab:
   m_ObjectHideFlags: 0
@@ -329,6 +347,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4188743665041156, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
     type: 2}
   m_PrefabInternal: {fileID: 1133449576}
+--- !u!114 &1133449578 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114707098871666112, guid: d2c1f6e5db4b32a44bd0c64f4474866f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1133449576}
+  m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
 --- !u!1 &1596584435
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +439,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2007339746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2007339748}
+  - component: {fileID: 2007339747}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2007339747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007339746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622bd3b33d39a4b4f9161409ec65b016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 564853468}
+  - {fileID: 1133449578}
+  - {fileID: 899779344}
+  - {fileID: 1000516130}
+  delayBetweenTurns: 2
+--- !u!4 &2007339748
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007339746}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.41668928, y: -0.5373854, z: -0.0405159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2064612367
 GameObject:
   m_ObjectHideFlags: 0

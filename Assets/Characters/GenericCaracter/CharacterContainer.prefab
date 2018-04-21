@@ -36,6 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4188743665041156}
   - component: {fileID: 95295258735419758}
+  - component: {fileID: 114707098871666112}
+  - component: {fileID: 114435731337257260}
   m_Layer: 0
   m_Name: CharacterContainer
   m_TagString: Untagged
@@ -117,6 +119,35 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114435731337257260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774635943046840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3e78bd7cfd1a845a177f64ce410761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: Skill
+  value: 10
+  maxValue: 100
+  minValue: 0
+  tooltip: 
+  missChanceRanges: {x: 1, y: 50, z: 0}
+--- !u!114 &114707098871666112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774635943046840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
 --- !u!212 &212240489135284650
 SpriteRenderer:
   m_ObjectHideFlags: 1
