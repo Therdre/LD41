@@ -6,9 +6,13 @@ namespace FoodNameSpace
 {
     using Tags;
 
-    public class Food : MonoBehaviour
+    [CreateAssetMenu(fileName = "Tag", menuName = "FoodTags/Food", order = 1)]
+    public class Food : ScriptableObject
     {
-
+        public string foodName = "";
+        public Sprite foodSprite = null;
+        public Sprite cutSprite = null;
+        
         List<Tag> tagsAdded = new List<Tag>();
 
         public void AddTag(Tag newTag)
