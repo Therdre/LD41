@@ -7,6 +7,7 @@ namespace GameUI
 {
     public class StationMenu : Menu
     {
+        public FoodMenu foodMenu = null;
         public override void CreateButtons()
         {
             if (tagsAvailable == null)
@@ -36,6 +37,13 @@ namespace GameUI
 
         public override void OpenNextMenu(Tag selectedTag)
         {
+            foodMenu.Open();
+        }
+
+        public override void Close()
+        {
+            base.Close();
+            foodMenu.Close();
         }
     }
 }

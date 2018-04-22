@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using FoodNameSpace.Tags;
 using UnityEngine.EventSystems;
+using FoodNameSpace;
 
 namespace GameUI
 {
@@ -14,12 +15,21 @@ namespace GameUI
 
     }
 
-    public class ContextMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    [System.Serializable]
+    public class FoodMenuEvent : UnityEvent<Tag,Food>
+    {
+
+    }
+
+
+    public class ContextMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public Text buttonText = null;
         public Tag associatedTag = null;
+        public Food associatedFood = null;
         public ContextMenuEvent onHover = null;
         public UnityEvent onExitHover=null;
+        public FoodMenuEvent onClick = null;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -32,5 +42,13 @@ namespace GameUI
             if (onExitHover!=null)
                 onExitHover.Invoke();
         }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (onClick != null)
+                onClick.Invoke(associatedTag, associatedFood);
+        }
+
+
     }
 }
