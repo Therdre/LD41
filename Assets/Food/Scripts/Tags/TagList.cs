@@ -9,5 +9,13 @@ namespace FoodNameSpace.Tags
     {
         public List<Tag> existingTags;
 
+        public Tag GetRandomTagOfType(TagType tagType)
+        {
+            List<Tag> tagsOfType = existingTags.FindAll(x=>x.tagType==tagType);
+            if (tagsOfType.Count == 0)
+                return null;
+
+            return tagsOfType[UnityEngine.Random.Range(0, tagsOfType.Count)];
+        }
     }
 }

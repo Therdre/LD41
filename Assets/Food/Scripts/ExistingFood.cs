@@ -9,9 +9,9 @@ namespace FoodNameSpace
     public class ExistingFood
      {
 
-        List<Tag> tagsAdded = new List<Tag>();
-        Food foodType = null;
-        int quantity = 1;
+        protected List<Tag> tagsAdded = new List<Tag>();
+        protected Food foodType = null;
+        protected int quantity = 1;
 
         public ExistingFood(Food food)
         {
