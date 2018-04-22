@@ -12,23 +12,10 @@ namespace FoodNameSpace
         public string foodName = "";
         public Sprite foodSprite = null;
         public Sprite cutSprite = null;
-        public Sprite mincedSprite = null;
+        public Sprite mincedSprite = null;      
         
-        List<Tag> tagsAdded = new List<Tag>();
 
-        public void AddTag(Tag newTag)
-        {
-            //for now, we can only have one type of tag
-            if(!TagTypeExists(newTag.tagType))
-            {
-                tagsAdded.Add(newTag);
-            }
-        }
-
-        public bool TagTypeExists(Tags.TagType type)
-        {
-            return tagsAdded.Exists(x => x.tagType == type);
-        }
+        
 
         public Sprite GetIcon(Tag tag)
         {

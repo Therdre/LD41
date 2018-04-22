@@ -14,7 +14,6 @@ namespace CharacterNameSpace
     {
         public Character[] characters = null;
         public float delayBetweenTurns = 2.0f;
-
         [Header("Temp")]
         public GameObject fridge = null;
         public GameObject oven = null;
@@ -49,17 +48,17 @@ namespace CharacterNameSpace
                 //2)Perform character action
 
                 Tag tag = UIManager.Instance.GetCurrentTag();
-                Food food = UIManager.Instance.GetCurrentFood();
-                characters[i].SetIcon(food.GetIcon(tag));
+                ExistingFood food = UIManager.Instance.GetCurrentFood();
+                characters[i].SetIcon(food.GetFoodType().GetIcon(tag));
                 
 
-                yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position,0.18f));
+                yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position));
                 characters[i].ShowIcon(true);
                 yield return new WaitForSeconds(0.2f);
-                yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position,0.18f));
+                yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position));
                 yield return new WaitForSeconds(0.2f);
                 yield return StartCoroutine(characters[i].MoveToOriginalPosition());
-
+                FoodInventory.Instance.AddFood(tag, food);
                 characters[i].ShowIcon(false);
 
             }
