@@ -254,6 +254,10 @@ Prefab:
       propertyPath: m_Name
       value: CookingStation (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_IsPrefabParent: 0
@@ -312,6 +316,10 @@ Prefab:
       propertyPath: m_Name
       value: CookingStation (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_IsPrefabParent: 0
@@ -353,6 +361,10 @@ Prefab:
     - target: {fileID: 4998021752705246, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
@@ -412,6 +424,10 @@ Prefab:
       propertyPath: m_Name
       value: CookingStation (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_IsPrefabParent: 0
@@ -469,6 +485,10 @@ Prefab:
     - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
       propertyPath: m_Name
       value: CookingStation (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
@@ -528,8 +548,74 @@ Prefab:
       propertyPath: m_Name
       value: CookingStation (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1652189292
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.108
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.709
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf84ec01970b644abdc1e2fb04997b2, type: 2}
+    - target: {fileID: 2300002, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf84ec01970b644abdc1e2fb04997b2, type: 2}
+    - target: {fileID: 400004, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300006, guid: 9df377031f304474bab04eef30cfe257, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: abf84ec01970b644abdc1e2fb04997b2, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9df377031f304474bab04eef30cfe257, type: 3}
   m_IsPrefabParent: 0
 --- !u!1001 &1722729218
 Prefab:
@@ -569,6 +655,10 @@ Prefab:
     - target: {fileID: 4998021752705246, guid: 54c7614410765ba429211d6454b02279, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
@@ -628,6 +718,10 @@ Prefab:
       propertyPath: m_Name
       value: CookingStation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_IsPrefabParent: 0
@@ -685,6 +779,10 @@ Prefab:
     - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
       propertyPath: m_Name
       value: CookingStation (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
