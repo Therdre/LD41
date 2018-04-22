@@ -24,6 +24,18 @@ ModelImporter:
     100032: Wall_008
     100034: Wall_Corner_001
     100036: Wall_Corner_002
+    100038: Condiments
+    100040: Counter
+    100042: CuttingBoard
+    100044: FridgeDoor
+    100046: Knife
+    100048: OvenDoor
+    100050: Plate
+    100052: Plate_01
+    100054: Plate_02
+    100056: Plate_03
+    100058: Plate_04
+    100060: Pot
     400000: Ground001
     400002: Ground003
     400004: Ground004
@@ -43,7 +55,20 @@ ModelImporter:
     400032: Wall_008
     400034: Wall_Corner_001
     400036: Wall_Corner_002
+    400038: Condiments
+    400040: Counter
+    400042: CuttingBoard
+    400044: FridgeDoor
+    400046: Knife
+    400048: OvenDoor
+    400050: Plate
+    400052: Plate_01
+    400054: Plate_02
+    400056: Plate_03
+    400058: Plate_04
+    400060: Pot
     2100000: kitchenAtlas
+    2100002: CookingStations
     2300000: Ground001
     2300002: Ground003
     2300004: Ground004
@@ -63,6 +88,18 @@ ModelImporter:
     2300032: Wall_Corner_001
     2300034: Wall_Corner_002
     2300036: //RootNode
+    2300038: Condiments
+    2300040: Counter
+    2300042: CuttingBoard
+    2300044: FridgeDoor
+    2300046: Knife
+    2300048: OvenDoor
+    2300050: Plate
+    2300052: Plate_01
+    2300054: Plate_02
+    2300056: Plate_03
+    2300058: Plate_04
+    2300060: Pot
     3300000: Ground001
     3300002: Ground003
     3300004: Ground004
@@ -82,6 +119,18 @@ ModelImporter:
     3300032: Wall_Corner_001
     3300034: Wall_Corner_002
     3300036: //RootNode
+    3300038: Condiments
+    3300040: Counter
+    3300042: CuttingBoard
+    3300044: FridgeDoor
+    3300046: Knife
+    3300048: OvenDoor
+    3300050: Plate
+    3300052: Plate_01
+    3300054: Plate_02
+    3300056: Plate_03
+    3300058: Plate_04
+    3300060: Pot
     4300000: Ground001
     4300002: Ground003
     4300004: Wall_001
@@ -101,6 +150,18 @@ ModelImporter:
     4300032: Wall_Corner_001
     4300034: Wall_Corner_002
     4300036: Environment
+    4300038: Counter
+    4300040: FridgeDoor
+    4300042: OvenDoor
+    4300044: Pot
+    4300046: Plate
+    4300048: CuttingBoard
+    4300050: Condiments
+    4300052: Knife
+    4300054: Plate_01
+    4300056: Plate_04
+    4300058: Plate_03
+    4300060: Plate_02
   externalObjects: {}
   materials:
     importMaterials: 1
