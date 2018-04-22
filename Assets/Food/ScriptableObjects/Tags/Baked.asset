@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Baked
   m_EditorClassIdentifier: 
   tagName: Baked
+  actionName: Bake
   tagType: 1

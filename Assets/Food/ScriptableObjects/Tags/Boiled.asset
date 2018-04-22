@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Boiled
   m_EditorClassIdentifier: 
   tagName: Boiled
+  actionName: Boil
   tagType: 1

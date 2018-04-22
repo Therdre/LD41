@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Seasoned
   m_EditorClassIdentifier: 
   tagName: Seasoned
+  actionName: Seaon
   tagType: 2

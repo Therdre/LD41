@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Sliced
   m_EditorClassIdentifier: 
   tagName: Sliced
+  actionName: Slice
   tagType: 0

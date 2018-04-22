@@ -16,6 +16,7 @@ namespace FoodNameSpace.Tags
     public class Tag: ScriptableObject
     {
         public string tagName = "";
+        public string actionName = "";
         public TagType tagType = TagType.CUT;
 
     }

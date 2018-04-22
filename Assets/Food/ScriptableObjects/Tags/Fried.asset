@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Fried
   m_EditorClassIdentifier: 
   tagName: Fried
+  actionName: Fry
   tagType: 1

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using GameUI;
+using UnityEngine.SceneManagement;
+
 namespace CharacterNameSpace
 {
     //shoudl this be technically the turn manager?
@@ -35,13 +38,16 @@ namespace CharacterNameSpace
             for (int i = 0; i < characters.Length; ++i)
             {
                 //1)select action, for now we are just gonna move
-
+                ActionMenu menu = UIManager.Instance.mainMenu;
+                menu.Open();
                 //2)Perform character action
                 yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position,0.18f));
                 yield return new WaitForSeconds(0.2f);
                 yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position,0.18f));
                 yield return new WaitForSeconds(0.2f);
                 yield return StartCoroutine(characters[i].MoveToOriginalPosition());
+                menu.Close();
+
             }
             turnPlaying = false;
         }

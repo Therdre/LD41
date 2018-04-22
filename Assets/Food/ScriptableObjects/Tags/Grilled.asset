@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Grilled
   m_EditorClassIdentifier: 
   tagName: Grilled
+  actionName: Grill
   tagType: 1
