@@ -10,6 +10,10 @@ namespace CharacterNameSpace
         public Character[] characters = null;
         public float delayBetweenTurns = 2.0f;
 
+        [Header("Temp")]
+        public GameObject fridge = null;
+        public GameObject oven = null;
+
         bool turnPlaying = false;
 
         private void Update()
@@ -33,7 +37,11 @@ namespace CharacterNameSpace
                 //1)select action, for now we are just gonna move
 
                 //2)Perform character action
-                yield return StartCoroutine(characters[i].MoveTo(new Vector3()));
+                yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position,0.18f));
+                yield return new WaitForSeconds(0.2f);
+                yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position,0.18f));
+                yield return new WaitForSeconds(0.2f);
+                yield return StartCoroutine(characters[i].MoveToOriginalPosition());
             }
             turnPlaying = false;
         }

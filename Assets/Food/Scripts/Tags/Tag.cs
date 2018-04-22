@@ -8,7 +8,8 @@ namespace FoodNameSpace.Tags
     {
         CUT,
         COOKED,
-        FANCY
+        FANCY,
+        NONE
     }
 
     [CreateAssetMenu(fileName = "Tag", menuName = "FoodTags/Tag", order = 1)]

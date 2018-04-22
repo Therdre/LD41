@@ -8,7 +8,8 @@ namespace CharacterNameSpace
     public class Character : MonoBehaviour
     {
 
-        public float speed = 0.5f;
+        public float velocity = 0.5f;
+        public Vector3 originalPosition;
         Stat[] availableStats = null;
         Stat skillStat = null;
 
@@ -16,6 +17,7 @@ namespace CharacterNameSpace
         {
             availableStats = GetComponents<Stat>();
             skillStat = GetComponent<SkillStat>();
+            originalPosition = transform.position;
         }
 
         public int Speed
@@ -31,9 +33,8 @@ namespace CharacterNameSpace
         public IEnumerator MoveTo(Vector3 target)
         {
             Vector3 originalPosition = transform.position;
-            //for now we are moving just -1 in x
-            target = originalPosition + new Vector3(-1.0f, 0.0f, 0.0f);
-            float time = 0.5f;
+            float distance = (target-originalPosition).sqrMagnitude;
+            float time = distance/velocity;
             float currentTime = 0.0f;
             
             while(currentTime<time)
@@ -42,8 +43,8 @@ namespace CharacterNameSpace
                 currentTime += Time.fixedDeltaTime;
                 yield return new WaitForFixedUpdate();
             }
-
-            yield return new WaitForSeconds(0.3f);
+            transform.position = target;
+            /*yield return new WaitForSeconds(0.3f);
 
             currentTime = 0.0f;
             while (currentTime < time)
@@ -51,10 +52,22 @@ namespace CharacterNameSpace
                 transform.position = Vector3.Lerp(originalPosition, target, 1.0f-currentTime / time);
                 currentTime += Time.fixedDeltaTime;
                 yield return new WaitForFixedUpdate();
-            }
+            }*/
 
-            transform.position = originalPosition;
+            //transform.position = originalPosition;
         }
 
+        //change this to rigid body and AI stuff?
+        public IEnumerator MoveTo( Vector3 target, float minDistance)
+        {
+            Vector3 distance = target - transform.position;
+            target.x = target.x - (Mathf.Sign(distance.x) * minDistance);
+            yield return StartCoroutine(MoveTo(target));
+        }
+
+        public IEnumerator MoveToOriginalPosition()
+        {
+            yield return StartCoroutine(MoveTo(originalPosition));
+        }
     }
 }
