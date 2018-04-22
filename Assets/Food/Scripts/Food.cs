@@ -12,6 +12,7 @@ namespace FoodNameSpace
         public string foodName = "";
         public Sprite foodSprite = null;
         public Sprite cutSprite = null;
+        public Sprite mincedSprite = null;
         
         List<Tag> tagsAdded = new List<Tag>();
 
@@ -27,6 +28,19 @@ namespace FoodNameSpace
         public bool TagTypeExists(Tags.TagType type)
         {
             return tagsAdded.Exists(x => x.tagType == type);
+        }
+
+        public Sprite GetIcon(Tag tag)
+        {
+            if(tag.tagName=="Sliced")
+            {
+                return cutSprite;
+            }
+            else if(tag.tagName=="Minced")
+            {
+                return mincedSprite;
+            }
+            return foodSprite;
         }
     }
 }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   foodName: Chicken
-  foodSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
-  cutSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
+  foodSprite: {fileID: 21300000, guid: 11e13684c8a63094584e59baf848867d, type: 3}
+  cutSprite: {fileID: 21300000, guid: 2cb1eb4692a36bb4986813fa95209b89, type: 3}
+  mincedSprite: {fileID: 21300000, guid: 7710364a52d82504cafb9a11a0687a28, type: 3}

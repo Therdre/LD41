@@ -11,6 +11,8 @@ namespace GameUI
         public ActionMenu mainMenu = null;
 
         bool actionSelected = false;
+        Tag currentTag = null;
+        Food currentFood = null;
         public void OpenMenu()
         {
             actionSelected = false;
@@ -24,6 +26,8 @@ namespace GameUI
 
         public void FoodButtonClicked(Tag tag, Food food)
         {
+            currentTag = tag;
+            currentFood = food;
             actionSelected = true;
             CloseMenu();
         }
@@ -31,6 +35,16 @@ namespace GameUI
         public bool WasActionSelected()
         {
             return actionSelected;
+        }
+
+        public Tag GetCurrentTag()
+        {
+            return currentTag;
+        }
+
+        public Food GetCurrentFood()
+        {
+            return currentFood;
         }
     }
 }

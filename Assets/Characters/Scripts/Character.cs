@@ -10,6 +10,7 @@ namespace CharacterNameSpace
 
         public float velocity = 0.5f;
         public Vector3 originalPosition;
+        public SpriteRenderer iconPlaceholder = null;
         Stat[] availableStats = null;
         Stat skillStat = null;
 
@@ -68,6 +69,22 @@ namespace CharacterNameSpace
         public IEnumerator MoveToOriginalPosition()
         {
             yield return StartCoroutine(MoveTo(originalPosition));
+        }
+
+        public void SetIcon(Sprite icon)
+        {
+            if (iconPlaceholder == null)
+                return;
+
+            iconPlaceholder.sprite = icon;
+        }
+
+        public void ShowIcon(bool show)
+        {
+            if (iconPlaceholder == null)
+                return;
+
+            iconPlaceholder.gameObject.SetActive(show);
         }
     }
 }

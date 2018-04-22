@@ -14,3 +14,4 @@ MonoBehaviour:
   foodName: Potatoes
   foodSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
   cutSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
+  mincedSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}

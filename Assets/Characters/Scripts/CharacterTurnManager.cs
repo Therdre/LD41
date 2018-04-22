@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using GameUI;
 using UnityEngine.SceneManagement;
+using FoodNameSpace;
+using FoodNameSpace.Tags;
 
 namespace CharacterNameSpace
 {
@@ -45,11 +47,20 @@ namespace CharacterNameSpace
                 }
                 UIManager.Instance.CloseMenu();
                 //2)Perform character action
+
+                Tag tag = UIManager.Instance.GetCurrentTag();
+                Food food = UIManager.Instance.GetCurrentFood();
+                characters[i].SetIcon(food.GetIcon(tag));
+                
+
                 yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position,0.18f));
+                characters[i].ShowIcon(true);
                 yield return new WaitForSeconds(0.2f);
                 yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position,0.18f));
                 yield return new WaitForSeconds(0.2f);
                 yield return StartCoroutine(characters[i].MoveToOriginalPosition());
+
+                characters[i].ShowIcon(false);
 
             }
             turnPlaying = false;

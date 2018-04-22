@@ -38,6 +38,7 @@ namespace GameUI
         public override void OpenNextMenu(Tag selectedTag)
         {
             foodMenu.Open();
+            foodMenu.ActivateButtons(selectedTag);
         }
 
         public override void Close()
