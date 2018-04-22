@@ -266,17 +266,17 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4811823619928806, guid: 54c7614410765ba429211d6454b02279, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.195
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114820768138397808, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 54c7614410765ba429211d6454b02279, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &946258813 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4998021752705246, guid: 54c7614410765ba429211d6454b02279,
-    type: 2}
-  m_PrefabInternal: {fileID: 946258812}
---- !u!1 &946258814 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1256552932821070, guid: 54c7614410765ba429211d6454b02279,
     type: 2}
   m_PrefabInternal: {fileID: 946258812}
 --- !u!1001 &1000516128
@@ -340,6 +340,25 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1000516128}
   m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
+--- !u!1 &1106874382 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1026984444141902, guid: 54c7614410765ba429211d6454b02279,
+    type: 2}
+  m_PrefabInternal: {fileID: 946258812}
+--- !u!114 &1106874384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106874382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8415de329aea9ab48b02d2ca1766dc09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagOutput:
+  - {fileID: 11400000, guid: afd8696298a40d348a43473dad7eb959, type: 2}
+  - {fileID: 11400000, guid: bd659603b4a32294ea858dd458cd0528, type: 2}
 --- !u!1001 &1133449576
 Prefab:
   m_ObjectHideFlags: 0
@@ -401,6 +420,49 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1133449576}
   m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
+--- !u!1 &1393831979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1393831981}
+  - component: {fileID: 1393831980}
+  m_Layer: 0
+  m_Name: FoodInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1393831980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393831979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a851d7a0ce906eb408afd46891b3a3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawFood:
+  - {fileID: 11400000, guid: 7c84b56d1c552b3478b42bc3ed693add, type: 2}
+  - {fileID: 11400000, guid: e4da0533d42f9c441b18fd931d20a613, type: 2}
+--- !u!4 &1393831981
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393831979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0447419, y: 0.17468184, z: 0.8325294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1530259854
 Prefab:
   m_ObjectHideFlags: 0
@@ -443,6 +505,14 @@ Prefab:
     - target: {fileID: 1530008015743070, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256552932821070, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168390748617662, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa8da5058f5c285458f94bb84742eca2, type: 2}
@@ -607,7 +677,7 @@ MonoBehaviour:
   - {fileID: 1000516130}
   delayBetweenTurns: 2
   fridge: {fileID: 1530259856}
-  oven: {fileID: 946258814}
+  oven: {fileID: 1106874382}
 --- !u!4 &2007339748
 Transform:
   m_ObjectHideFlags: 0

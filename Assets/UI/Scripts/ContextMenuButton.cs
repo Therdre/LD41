@@ -16,7 +16,7 @@ namespace GameUI
     }
 
     [System.Serializable]
-    public class FoodMenuEvent : UnityEvent<Tag,Food>
+    public class FoodMenuEvent : UnityEvent<Tag, ExistingFood>
     {
 
     }
@@ -26,7 +26,7 @@ namespace GameUI
     {
         public Text buttonText = null;
         public Tag associatedTag = null;
-        public Food associatedFood = null;
+        public ExistingFood associatedFood = null;
         public ContextMenuEvent onHover = null;
         public UnityEvent onExitHover=null;
         public FoodMenuEvent onClick = null;

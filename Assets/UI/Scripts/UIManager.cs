@@ -12,7 +12,7 @@ namespace GameUI
 
         bool actionSelected = false;
         Tag currentTag = null;
-        Food currentFood = null;
+        ExistingFood currentFood = null;
         public void OpenMenu()
         {
             actionSelected = false;
@@ -24,7 +24,7 @@ namespace GameUI
             mainMenu.Close();
         }
 
-        public void FoodButtonClicked(Tag tag, Food food)
+        public void FoodButtonClicked(Tag tag, ExistingFood food)
         {
             currentTag = tag;
             currentFood = food;
@@ -42,7 +42,7 @@ namespace GameUI
             return currentTag;
         }
 
-        public Food GetCurrentFood()
+        public ExistingFood GetCurrentFood()
         {
             return currentFood;
         }
