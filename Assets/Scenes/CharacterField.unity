@@ -4648,9 +4648,10 @@ MonoBehaviour:
   - {fileID: 1000516130}
   delayBetweenTurns: 2
   recipeTimer: {fileID: 619595520}
-  stressLossDamage: 10
+  stressLossDamage: 25
   damageChance: 0.3
-  initialRecipeTime: 60
+  aoeDamange: 10
+  initialRecipeTime: 90
   minRecipeTime: 5
   fridge: {fileID: 1437998070}
   cookingStations:

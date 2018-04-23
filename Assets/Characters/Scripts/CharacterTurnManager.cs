@@ -19,6 +19,7 @@ namespace CharacterNameSpace
         [Header("Playgame stuff")]
         public int stressLossDamage = 5;
         public float damageChance = 0.3f;
+        public int aoeDamange = 10;
 
         public float initialRecipeTime = 30f;
         public float minRecipeTime = 5f;
@@ -106,7 +107,7 @@ namespace CharacterNameSpace
                 if(!recipeTimer.IsTimerRunning())
                 {
                     yield return StartCoroutine(RecipeManager.Instance.FailedRecipe());
-                    yield return StartCoroutine(AOEDamage(25,0.2f));
+                    yield return StartCoroutine(AOEDamage(aoeDamange, 0.2f));
 
                 }
                 else
