@@ -49,7 +49,7 @@ namespace CharacterNameSpace
 
                 Tag tag = UIManager.Instance.GetCurrentTag();
                 ExistingFood food = UIManager.Instance.GetCurrentFood();
-                characters[i].SetIcon(food.GetFoodType().GetIcon(tag));
+                characters[i].SetIcon(food.GetFoodType().GetIcon(tag), food.GetFoodType().GetColor(tag));
                 
 
                 yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position));

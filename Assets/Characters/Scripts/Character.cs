@@ -71,12 +71,13 @@ namespace CharacterNameSpace
             yield return StartCoroutine(MoveTo(originalPosition));
         }
 
-        public void SetIcon(Sprite icon)
+        public void SetIcon(Sprite icon, Color color)
         {
             if (iconPlaceholder == null)
                 return;
 
             iconPlaceholder.sprite = icon;
+            
         }
 
         public void ShowIcon(bool show)
