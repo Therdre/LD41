@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Baked
   actionName: Bake
+  plateIcon: {fileID: 21300000, guid: 2144fac961e57364db824dd87c39eea2, type: 3}
   tagType: 1

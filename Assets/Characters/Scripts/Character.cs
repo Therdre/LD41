@@ -13,7 +13,8 @@ namespace CharacterNameSpace
         
         public Vector3 originalPosition;
         public SpriteRenderer iconPlaceholder = null;
-
+        public SpriteRenderer plateIconPlaceholder = null;
+        public Animator animator = null;
         [Header("Stress")]
         public int characterStress = 100;
 
@@ -57,6 +58,7 @@ namespace CharacterNameSpace
         }
         public IEnumerator MoveTo(Vector3 target)
         {
+            animator.SetTrigger("Walk");
             Vector3 startPosition = transform.position;
             float distance = (target- startPosition).sqrMagnitude;
             Vector3 direction = (target - startPosition).normalized;
@@ -76,6 +78,7 @@ namespace CharacterNameSpace
                 yield return new WaitForFixedUpdate();
             }
             transform.position = target;
+            animator.SetTrigger("Idle");
         }
 
         //change this to rigid body and AI stuff?
@@ -91,13 +94,20 @@ namespace CharacterNameSpace
             yield return StartCoroutine(MoveTo(originalPosition));
         }
 
-        public void SetIcon(Sprite icon, Color color)
+        public void SetIcon(Sprite icon)
         {
             if (iconPlaceholder == null)
                 return;
 
             iconPlaceholder.sprite = icon;
-            iconPlaceholder.color = color;
+        }
+
+        public void SetPlateIcon(Sprite icon)
+        {
+            if (plateIconPlaceholder == null)
+                return;
+
+            plateIconPlaceholder.sprite = icon;
         }
 
         public void ShowIcon(bool show)
@@ -106,6 +116,14 @@ namespace CharacterNameSpace
                 return;
 
             iconPlaceholder.gameObject.SetActive(show);
+        }
+
+        public void ShowPlateIcon(bool show)
+        {
+            if (plateIconPlaceholder == null)
+                return;
+
+            plateIconPlaceholder.gameObject.SetActive(show);
         }
     }
 }

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Fried
   actionName: Fry
+  plateIcon: {fileID: 21300000, guid: 759f9d512c94ce84a957467e4a8da273, type: 3}
   tagType: 1

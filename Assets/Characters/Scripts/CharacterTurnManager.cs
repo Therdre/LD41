@@ -81,7 +81,7 @@ namespace CharacterNameSpace
 
                     Tag tag = UIManager.Instance.GetCurrentTag();
                     ExistingFood food = UIManager.Instance.GetCurrentFood();
-                    characters[i].SetIcon(food.GetFoodType().GetIcon(tag), food.GetFoodType().GetColor(tag));
+                    characters[i].SetIcon(food.GetFoodType().GetIcon(tag));
 
                     //walk to station with item
                     yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position));
@@ -91,6 +91,7 @@ namespace CharacterNameSpace
                     }                    
                     yield return new WaitForSeconds(1f);
                     characters[i].ShowIcon(true);
+                    characters[i].ShowPlateIcon(false);
 
                     //select station
                     CookingStation station = SelectCookingStation(tag);
@@ -104,6 +105,8 @@ namespace CharacterNameSpace
                     }
 
                     yield return new WaitForSeconds(1f);
+                    characters[i].SetPlateIcon(tag.plateIcon);
+                    characters[i].ShowPlateIcon(true);
                     yield return StartCoroutine(characters[i].MoveToOriginalPosition());
                     FoodInventory.Instance.AddFood(tag, food);
                     characters[i].ShowIcon(false);

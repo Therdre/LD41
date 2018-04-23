@@ -579,6 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagOutput:
   - {fileID: 11400000, guid: 040f930009cc1cc40a0189c707756c4b, type: 2}
+  animatorTrigger: Season
 --- !u!1 &508028016
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagOutput:
   - {fileID: 11400000, guid: 0f350fa17aaf80f4cadce524406456d1, type: 2}
+  animatorTrigger: 
 --- !u!1 &584618663
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagOutput:
   - {fileID: 11400000, guid: 360df97cc86631b4388d1b5e067df168, type: 2}
+  animatorTrigger: 
 --- !u!1001 &899779342
 Prefab:
   m_ObjectHideFlags: 0
@@ -950,6 +953,10 @@ Prefab:
     - target: {fileID: 1774635943046840, guid: d2c1f6e5db4b32a44bd0c64f4474866f, type: 2}
       propertyPath: m_Name
       value: CharacterContainer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774635943046840, guid: d2c1f6e5db4b32a44bd0c64f4474866f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c1f6e5db4b32a44bd0c64f4474866f, type: 2}
@@ -1174,6 +1181,7 @@ MonoBehaviour:
   tagOutput:
   - {fileID: 11400000, guid: afd8696298a40d348a43473dad7eb959, type: 2}
   - {fileID: 11400000, guid: bd659603b4a32294ea858dd458cd0528, type: 2}
+  animatorTrigger: 
 --- !u!1001 &1133449576
 Prefab:
   m_ObjectHideFlags: 0
@@ -1630,6 +1638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagOutput:
   - {fileID: 11400000, guid: afd8696298a40d348a43473dad7eb959, type: 2}
+  animatorTrigger: OpenOven
 --- !u!1 &1596584435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1960,7 @@ MonoBehaviour:
   tagOutput:
   - {fileID: 11400000, guid: 075d023db67b303458d1e513ccde65f8, type: 2}
   - {fileID: 11400000, guid: 2967ea7cb9b636c4e904af5d0f4f8e04, type: 2}
+  animatorTrigger: Cut
 --- !u!1 &1873689599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagOutput:
   - {fileID: 11400000, guid: bd659603b4a32294ea858dd458cd0528, type: 2}
+  animatorTrigger: Pot
 --- !u!1 &1915362304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,6 +2188,7 @@ MonoBehaviour:
   - {fileID: 570206307}
   - {fileID: 442038922}
   - {fileID: 1837075771}
+  cookingStationAnimator: {fileID: 1652189294}
 --- !u!4 &2007339748
 Transform:
   m_ObjectHideFlags: 0

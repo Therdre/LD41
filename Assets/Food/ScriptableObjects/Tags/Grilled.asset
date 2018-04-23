@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Grilled
   actionName: Grill
+  plateIcon: {fileID: 21300000, guid: a44acf53913cf9245a3da2ca56eb3d9b, type: 3}
   tagType: 1

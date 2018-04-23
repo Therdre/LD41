@@ -21,10 +21,6 @@ namespace FoodNameSpace
         public Sprite cutSprite = null;
         public Sprite mincedSprite = null;
         public FoodType foodType = FoodType.MEAT;
-        public Color grilledColor=new Color(1f,1f,1f,1f);
-        public Color friedColor = new Color(1f, 1f, 1f, 1f);
-        public Color boiledColor = new Color(1f, 1f, 1f, 1f);
-        public Color bakedColor = new Color(1f, 1f, 1f, 1f);
 
         public Sprite GetIcon(Tag tag)
         {
@@ -37,27 +33,6 @@ namespace FoodNameSpace
                 return mincedSprite;
             }
             return foodSprite;
-        }
-
-        public Color GetColor(Tag tag)
-        {
-            if (tag.tagName == "Baked")
-            {
-                return bakedColor;
-            }
-            else if (tag.tagName == "Boiled")
-            {
-                return boiledColor;
-            }
-            if (tag.tagName == "Fried")
-            {
-                return friedColor;
-            }
-            else if (tag.tagName == "Grilled")
-            {
-                return grilledColor;
-            }
-            return new Color(1f, 1f, 1f, 1f);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace FoodNameSpace.Tags
     {
         public string tagName = "";
         public string actionName = "";
+        public Sprite plateIcon = null;
         public TagType tagType = TagType.CUT;
 
     }
