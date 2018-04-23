@@ -57,15 +57,22 @@ namespace CharacterNameSpace
         }
         public IEnumerator MoveTo(Vector3 target)
         {
-            Vector3 originalPosition = transform.position;
-            float distance = (target-originalPosition).sqrMagnitude;
-            float time = distance/velocity;
+            Vector3 startPosition = transform.position;
+            float distance = (target- startPosition).sqrMagnitude;
+            Vector3 direction = (target - startPosition).normalized;
+            float time = distance / velocity;
+            if (time < 0.3f)
+            {
+                time = 0.3f;
+            }
             float currentTime = 0.0f;
             
             while(currentTime<time)
             {
-                transform.position = Vector3.Lerp(originalPosition,target,currentTime/time);
+                
+                transform.position = Vector3.Lerp(startPosition,target,currentTime/time);
                 currentTime += Time.fixedDeltaTime;
+                //transform.position += direction*velocity * Time.fixedDeltaTime;                
                 yield return new WaitForFixedUpdate();
             }
             transform.position = target;

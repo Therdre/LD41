@@ -6,7 +6,7 @@ using GameUI;
 using UnityEngine.SceneManagement;
 using FoodNameSpace;
 using FoodNameSpace.Tags;
-
+using StationsNamespace;
 namespace CharacterNameSpace
 {
     //shoudl this be technically the turn manager?
@@ -17,7 +17,8 @@ namespace CharacterNameSpace
         public Timer recipeTimer = null;
         [Header("Temp")]
         public GameObject fridge = null;
-        public GameObject oven = null;
+        public List<CookingStation> cookingStations = new List<CookingStation>();
+        public Animator cookingStationAnimator = null;
 
         bool turnPlaying = false;
 
@@ -32,6 +33,11 @@ namespace CharacterNameSpace
         {
             if (!turnPlaying)
                 StartCoroutine(PlayTurn());
+        }
+
+        public CookingStation SelectCookingStation(Tag actionTag)
+        {
+            return cookingStations.Find(x => x.HasTag(actionTag));
         }
 
         IEnumerator PlayTurn()
@@ -77,12 +83,27 @@ namespace CharacterNameSpace
                     ExistingFood food = UIManager.Instance.GetCurrentFood();
                     characters[i].SetIcon(food.GetFoodType().GetIcon(tag), food.GetFoodType().GetColor(tag));
 
-
+                    //walk to station with item
                     yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position));
+                    if (cookingStationAnimator != null)
+                    {
+                        cookingStationAnimator.SetTrigger("OpenFridge");
+                    }                    
+                    yield return new WaitForSeconds(1f);
                     characters[i].ShowIcon(true);
-                    yield return new WaitForSeconds(0.2f);
-                    yield return StartCoroutine(characters[i].MoveTo(oven.gameObject.transform.position));
-                    yield return new WaitForSeconds(0.2f);
+
+                    //select station
+                    CookingStation station = SelectCookingStation(tag);
+                    yield return StartCoroutine(characters[i].MoveTo(station.gameObject.transform.position));
+                    if (cookingStationAnimator != null)
+                    {
+                        if (station.animatorTrigger.Length > 0)
+                        {
+                            cookingStationAnimator.SetTrigger(station.animatorTrigger);
+                        }
+                    }
+
+                    yield return new WaitForSeconds(1f);
                     yield return StartCoroutine(characters[i].MoveToOriginalPosition());
                     FoodInventory.Instance.AddFood(tag, food);
                     characters[i].ShowIcon(false);
