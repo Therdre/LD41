@@ -12,6 +12,8 @@ namespace GameUI
     {
 
         public int instancesPerButton = 8;
+        public AudioSource buttonClick = null;
+
         // Use this for initialization
         public override void CreateButtons()
         {
@@ -29,6 +31,10 @@ namespace GameUI
         public void OnButtonClick(Tag tag, ExistingFood food)
         {
             UIManager.Instance.FoodButtonClicked(tag, food);
+            if(buttonClick!=null)
+            {
+                buttonClick.Play();
+            }
         }
 
         public void AddButton(Tag tag, string name, bool active, Food food)

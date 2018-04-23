@@ -8,7 +8,7 @@ namespace FoodNameSpace
     {
 
         public RecipeGenerator recipeGenerator = null;
-        
+        public AudioSource recipeCompleted = null;
         bool isRecipeBeingMade = false;
         Recipe currentRecipe = null;
         RecipeDisplay recipeDisplay = null;
@@ -61,6 +61,10 @@ namespace FoodNameSpace
             if (currentRecipe.IsCompleted())
             {
                 yield return new WaitForSeconds(0.5f);
+                if(recipeCompleted!=null)
+                {
+                    recipeCompleted.Play();
+                }
                 if (recipeDisplay != null)
                 {
                     recipeDisplay.gameObject.SetActive(false);

@@ -23,6 +23,12 @@ namespace CharacterNameSpace
         public ParticleSystem okEffect = null;
         public ParticleSystem damageEffect = null;
 
+        [Header("Sounds")]
+        public AudioSource missSound = null;
+        public AudioSource okSound = null;
+        public AudioSource damageSound = null;
+        public AudioSource crySound = null;
+
         GameUI.CharacterInfo characterDisplay = null;
         Stat[] availableStats = null;
         Stat skillStat = null;
@@ -149,6 +155,7 @@ namespace CharacterNameSpace
                 if (animator != null)
                 {
                     animator.SetTrigger("Cry");
+                    crySound.Play();
                     isCrying = true;
                 }
             }
@@ -161,6 +168,7 @@ namespace CharacterNameSpace
                 {
                     missEffect.Play();
                 }
+                missSound.Play();
             }
             else
             {
@@ -168,6 +176,7 @@ namespace CharacterNameSpace
                 {
                     okEffect.Play();
                 }
+                okSound.Play();
             }
         }
 
@@ -176,6 +185,7 @@ namespace CharacterNameSpace
             if (damageEffect != null && playEffect)
             {
                 damageEffect.Play();
+                damageSound.Play();
             }
             SetStress(characterStress - damage);
         }
