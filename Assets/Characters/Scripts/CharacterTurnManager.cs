@@ -208,6 +208,7 @@ namespace CharacterNameSpace
             }
             else
             {
+                station.PlayDamageEffect();
                 character.Damaged(stressLossDamage);
             }
             yield return new WaitForSeconds(0.2f);
@@ -251,7 +252,10 @@ namespace CharacterNameSpace
                 targetStress.Add(target);
             }
 
-
+            for(int i=0;i<cookingStations.Count;++i)
+            {
+                cookingStations[i].PlayDamageEffect();
+            }
             //while (currentTime < time)
             int damageApplied = 0;
             

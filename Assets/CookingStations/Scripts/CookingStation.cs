@@ -11,10 +11,19 @@ namespace StationsNamespace
     {
         public Tag[] tagOutput = null;
         public string animatorTrigger = "";
+        public ParticleSystem damageEffect = null;
 
         public bool HasTag(Tag tag)
         {
             return tagOutput.Contains(tag);
+        }
+
+        public void PlayDamageEffect()
+        {
+            if(damageEffect!=null)
+            {
+                damageEffect.Play();
+            }
         }
     }
 }
