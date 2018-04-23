@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Potatoes
   m_EditorClassIdentifier: 
   foodName: Potatoes
-  foodSprite: {fileID: 21300000, guid: 613671ef53e065d4680de52770bb2adf, type: 3}
-  cutSprite: {fileID: 21300000, guid: dced8e5cbaa64d048958c70e16ab7605, type: 3}
-  mincedSprite: {fileID: 21300000, guid: 7ba3441ded0867b4b99aa0848e3f3c8e, type: 3}
+  foodSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
+  cutSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
+  mincedSprite: {fileID: 21300000, guid: 5498eeae71a866943a7b48df51394838, type: 3}
   foodType: 1
