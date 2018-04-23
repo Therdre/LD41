@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using FoodNameSpace;
 using FoodNameSpace.Tags;
+using System.Linq;
 
 namespace GameUI
 {
     public class UIManager : Singleton<UIManager>
     {
         public ActionMenu mainMenu = null;
+        public List<RecipeDisplay> recipeDisplays = new List<RecipeDisplay>();
 
         bool actionSelected = false;
         Tag currentTag = null;
@@ -45,6 +47,11 @@ namespace GameUI
         public ExistingFood GetCurrentFood()
         {
             return currentFood;
+        }
+
+        public RecipeDisplay GetAvailableRecipeDisplay()
+        {
+            return recipeDisplays.FirstOrDefault(x => !x.gameObject.activeSelf);
         }
     }
 }

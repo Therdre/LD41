@@ -15,21 +15,20 @@ namespace FoodNameSpace
         public float vegetableChange = 0.5f;
         public int maxTags = 3;
 
-        Recipe currentRecipe = null;
-
-        public void GenerateRandomRecipe()
+        public Recipe GenerateRandomRecipe()
         {
-            currentRecipe = new Recipe();
+            Recipe currentRecipe = new Recipe();
             //Add a meat ingredient??
             if(Chance(0.5f))
             {
                 currentRecipe.AddIngredient(GenerateIngredient(FoodType.MEAT));                
             }
 
-            if(Chance(0.5f))
+            if(Chance(0.5f) || currentRecipe.ingredientesList.Count==0)
             {
                 currentRecipe.AddIngredient(GenerateIngredient(FoodType.VEGETABLE));
             }
+            return currentRecipe;
         }
 
         public RecipeIngredient GenerateIngredient(FoodType foodType)
@@ -50,14 +49,15 @@ namespace FoodNameSpace
                     Tag tagToAdd=availableTags.GetRandomTagOfType((TagType)i);
 
                     //add as optional
-                    if(Chance(0.5f))
+                    /*if(Chance(0.5f))
                     {
                         ingredient.AddOptionalTag(tagToAdd);
                     }
                     else
                     {
                         ingredient.AddTag(tagToAdd);
-                    }
+                    }*/
+                    ingredient.AddTag(tagToAdd);
                 }
             }
 

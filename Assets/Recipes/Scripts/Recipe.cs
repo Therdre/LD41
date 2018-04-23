@@ -27,6 +27,11 @@ namespace FoodNameSpace
         
         public void AddIngredient(RecipeIngredient ingredient)
         {
+            if(name.Length!=0)
+            {
+                name += " and ";
+            }
+            name += ingredient.GenerateName();
             ingredientesList.Add(ingredient);
         }
     }

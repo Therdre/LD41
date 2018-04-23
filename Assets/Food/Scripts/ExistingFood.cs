@@ -109,5 +109,10 @@ namespace FoodNameSpace
             text += foodType.foodName;
             return text;
         }
+
+        public List<Tag> GetTags()
+        {
+            return tagsAdded;
+        }
     }
 }
