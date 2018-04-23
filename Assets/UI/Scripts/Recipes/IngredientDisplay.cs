@@ -62,9 +62,9 @@ namespace GameUI
 
         }
 
-        public void SetCompletedDisplay(bool completed)
+        public void SetCompletedDisplay(bool completed, List<Tag> partialTags)
         {
-            if (completed)
+            if (completed || partialTags.Count>0)
             {
                 if (color != null)
                 {
@@ -81,7 +81,7 @@ namespace GameUI
 
             for (int i = 0; i < tags.Count; ++i)
             {
-                tags[i].SetCompleted(completed);
+                tags[i].SetCompleted(completed || partialTags.Exists(x=>x.tagName==tags[i].text.text));
             }
         }
     }

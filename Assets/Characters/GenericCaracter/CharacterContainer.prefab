@@ -379,7 +379,7 @@ MonoBehaviour:
   maxValue: 100
   minValue: 0
   tooltip: 
-  missChanceRanges: {x: 0.01, y: 0.3, z: 0}
+  missChanceRanges: {x: 0.01, y: 0.2, z: 0}
 --- !u!114 &114707098871666112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,6 +400,10 @@ MonoBehaviour:
   missEffect: {fileID: 198525636218877142}
   okEffect: {fileID: 198241157123407598}
   damageEffect: {fileID: 198045719635257488}
+  missSound: {fileID: 0}
+  okSound: {fileID: 0}
+  damageSound: {fileID: 0}
+  crySound: {fileID: 0}
 --- !u!198 &198045719635257488
 ParticleSystem:
   m_ObjectHideFlags: 1

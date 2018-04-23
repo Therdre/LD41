@@ -68,7 +68,7 @@ namespace GameUI
             List<RecipeIngredient> ingredients = associatedRecipe.ingredientesList;
             for (int i = 0; i < ingredients.Count; ++i)
             {
-                ingredientsDisplay[i].SetCompletedDisplay(ingredients[i].ingredientCompleted);
+                ingredientsDisplay[i].SetCompletedDisplay(ingredients[i].ingredientCompleted, ingredients[i].partialTags);
             }
         }
     }
