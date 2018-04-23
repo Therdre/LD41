@@ -4,6 +4,7 @@ using UnityEngine;
 using FoodNameSpace;
 using FoodNameSpace.Tags;
 using System.Linq;
+using UnityEngine.UI;
 
 namespace GameUI
 {
@@ -11,6 +12,8 @@ namespace GameUI
     {
         public ActionMenu mainMenu = null;
         public List<RecipeDisplay> recipeDisplays = new List<RecipeDisplay>();
+        public Slider timeDisplay = null;
+        public List<CharacterInfo> characterInfo = new List<CharacterInfo>();
 
         bool actionSelected = false;
         Tag currentTag = null;
@@ -54,5 +57,12 @@ namespace GameUI
             return recipeDisplays.FirstOrDefault(x => !x.gameObject.activeSelf);
         }
 
+        public CharacterInfo GetCharacterInfo(int index)
+        {
+            if (index >= characterInfo.Count)
+                return null;
+
+            return characterInfo[index];
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUI;
 
 namespace CharacterNameSpace
 {
@@ -9,8 +10,14 @@ namespace CharacterNameSpace
     {
 
         public float velocity = 0.5f;
+        
         public Vector3 originalPosition;
         public SpriteRenderer iconPlaceholder = null;
+
+        [Header("Stress")]
+        public int characterStress = 100;
+
+        GameUI.CharacterInfo characterDisplay = null;
         Stat[] availableStats = null;
         Stat skillStat = null;
 
@@ -19,6 +26,15 @@ namespace CharacterNameSpace
             availableStats = GetComponents<Stat>();
             skillStat = GetComponent<SkillStat>();
             originalPosition = transform.position;
+        }
+
+        public void SetCharacterDisplay(GameUI.CharacterInfo display)
+        {
+            characterDisplay = display;
+            if (characterDisplay != null)
+            {
+                characterDisplay.UpdateStress(characterStress);
+            }
         }
 
         public int Speed
@@ -31,6 +47,14 @@ namespace CharacterNameSpace
             }
         }
 
+        public void SetStress(int stress)
+        {
+            characterStress = stress;
+            if(characterDisplay!=null)
+            {
+                characterDisplay.UpdateStress(stress);
+            }
+        }
         public IEnumerator MoveTo(Vector3 target)
         {
             Vector3 originalPosition = transform.position;
@@ -45,17 +69,6 @@ namespace CharacterNameSpace
                 yield return new WaitForFixedUpdate();
             }
             transform.position = target;
-            /*yield return new WaitForSeconds(0.3f);
-
-            currentTime = 0.0f;
-            while (currentTime < time)
-            {
-                transform.position = Vector3.Lerp(originalPosition, target, 1.0f-currentTime / time);
-                currentTime += Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
-            }*/
-
-            //transform.position = originalPosition;
         }
 
         //change this to rigid body and AI stuff?

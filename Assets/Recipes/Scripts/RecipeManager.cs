@@ -70,5 +70,15 @@ namespace FoodNameSpace
             }
             
         }
+
+        public IEnumerator FailedRecipe()
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (recipeDisplay != null)
+            {
+                recipeDisplay.gameObject.SetActive(false);
+            }
+            isRecipeBeingMade = false;
+        }
     }
 }

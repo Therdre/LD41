@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 2751715}
   - component: {fileID: 2751714}
   - component: {fileID: 2751713}
+  - component: {fileID: 2751716}
   - component: {fileID: 2751712}
   m_Layer: 5
   m_Name: Character 3
@@ -251,6 +252,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2751710}
+--- !u!114 &2751716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2751710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f9d11e591a80342aa2154c7e526b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactername: {fileID: 141902532}
+  stressLevel: {fileID: 1242292532}
+  stressText: {fileID: 564127866}
 --- !u!1 &7260912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,15 +1163,15 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 26870263}
   m_FillRect: {fileID: 2003091410}
   m_HandleRect: {fileID: 26870262}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5349,7 +5364,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 45431833}
   m_FillRect: {fileID: 920053627}
   m_HandleRect: {fileID: 45431832}
@@ -6264,6 +6279,12 @@ MonoBehaviour:
   mainMenu: {fileID: 121502962}
   recipeDisplays:
   - {fileID: 752825659}
+  timeDisplay: {fileID: 573232138}
+  characterInfo:
+  - {fileID: 1579201997}
+  - {fileID: 822710623}
+  - {fileID: 2751716}
+  - {fileID: 682802515}
 --- !u!4 &651490863
 Transform:
   m_ObjectHideFlags: 0
@@ -6725,6 +6746,7 @@ GameObject:
   - component: {fileID: 682802514}
   - component: {fileID: 682802513}
   - component: {fileID: 682802512}
+  - component: {fileID: 682802515}
   - component: {fileID: 682802511}
   m_Layer: 5
   m_Name: Character 4
@@ -6851,6 +6873,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682802509}
+--- !u!114 &682802515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682802509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f9d11e591a80342aa2154c7e526b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactername: {fileID: 1361362340}
+  stressLevel: {fileID: 65798205}
+  stressText: {fileID: 1555615900}
 --- !u!1 &698755995
 GameObject:
   m_ObjectHideFlags: 0
@@ -7526,15 +7562,15 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1425098810}
   m_FillRect: {fileID: 1407765876}
   m_HandleRect: {fileID: 1425098809}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7871,6 +7907,7 @@ GameObject:
   - component: {fileID: 822710622}
   - component: {fileID: 822710621}
   - component: {fileID: 822710620}
+  - component: {fileID: 822710623}
   - component: {fileID: 822710619}
   m_Layer: 5
   m_Name: Character 2
@@ -7997,6 +8034,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 822710617}
+--- !u!114 &822710623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822710617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f9d11e591a80342aa2154c7e526b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactername: {fileID: 1585865777}
+  stressLevel: {fileID: 1252258503}
+  stressText: {fileID: 1091773422}
 --- !u!1 &832687765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11253,15 +11304,15 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1116854697}
   m_FillRect: {fileID: 189349542}
   m_HandleRect: {fileID: 1116854696}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11471,15 +11522,15 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1409570956}
   m_FillRect: {fileID: 960872083}
   m_HandleRect: {fileID: 1409570955}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14333,6 +14384,7 @@ GameObject:
   - component: {fileID: 1579201996}
   - component: {fileID: 1579201995}
   - component: {fileID: 1579201994}
+  - component: {fileID: 1579201997}
   - component: {fileID: 1579201993}
   m_Layer: 5
   m_Name: Character 1
@@ -14459,6 +14511,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579201991}
+--- !u!114 &1579201997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1579201991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f9d11e591a80342aa2154c7e526b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactername: {fileID: 1891389469}
+  stressLevel: {fileID: 783275548}
+  stressText: {fileID: 671657546}
 --- !u!1 &1580011620
 GameObject:
   m_ObjectHideFlags: 0
