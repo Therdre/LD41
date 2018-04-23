@@ -13,15 +13,37 @@ public class MainMenu : Singleton<MainMenu>
     public GameObject scoreScreen = null;
     public Text scoreText = null;
     public bool gameStarted = false;
+
+    [Header("In game menu")]
+    //in game menu
+    public GameObject inGameMenu = null;
+
     private void Start()
     {
         ShowMenu();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
+        {
+            inGameMenu.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
+    }
+    
+    public void Continue()
+    {
+        scoreScreen.SetActive(false);
+        inGameMenu.SetActive(false);
+        menuRoot.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
     public void ShowMenu()
     {
         gameStarted = false;
         scoreScreen.SetActive(false);
+        inGameMenu.SetActive(false);
         menuRoot.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -35,7 +57,7 @@ public class MainMenu : Singleton<MainMenu>
 
     public void StartGame()
     {
-        
+        inGameMenu.SetActive(false);
         scoreScreen.SetActive(false);
         menuRoot.SetActive(false);
         Time.timeScale = 1.0f;
