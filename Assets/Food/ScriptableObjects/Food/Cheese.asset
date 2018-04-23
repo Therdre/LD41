@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf7a2539e3f731647a249fcee9fc350e, type: 3}
-  m_Name: Potatoes
+  m_Name: Cheese
   m_EditorClassIdentifier: 
-  foodName: Potatoes
-  foodSprite: {fileID: 21300000, guid: 613671ef53e065d4680de52770bb2adf, type: 3}
-  cutSprite: {fileID: 21300000, guid: dced8e5cbaa64d048958c70e16ab7605, type: 3}
-  mincedSprite: {fileID: 21300000, guid: 7ba3441ded0867b4b99aa0848e3f3c8e, type: 3}
+  foodName: Cheese
+  foodSprite: {fileID: 21300000, guid: 027875dd13cdd794da6fe90b37d8b017, type: 3}
+  cutSprite: {fileID: 21300000, guid: 7d65cc675123e2c42a206adab20be344, type: 3}
+  mincedSprite: {fileID: 21300000, guid: 7eeec5e49428d444ebd777589977399a, type: 3}
   foodType: 1

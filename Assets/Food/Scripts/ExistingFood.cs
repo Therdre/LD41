@@ -53,6 +53,11 @@ namespace FoodNameSpace
             return tagsAdded.Exists(x => x.tagType == type);
         }
 
+        public Tag GetTagOfType(Tags.TagType type)
+        {
+            return tagsAdded.Find(x => x.tagType == type);
+        }
+
         public Food GetFoodType()
         {
             return foodType;

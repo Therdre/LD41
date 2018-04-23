@@ -24,6 +24,10 @@ namespace FoodNameSpace
 
         public Sprite GetIcon(Tag tag)
         {
+            if(tag==null)
+            {
+                return foodSprite;
+            }
             if(tag.tagName=="Sliced")
             {
                 return cutSprite;
