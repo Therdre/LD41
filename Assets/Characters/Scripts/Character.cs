@@ -77,7 +77,7 @@ namespace CharacterNameSpace
                 return;
 
             iconPlaceholder.sprite = icon;
-            
+            iconPlaceholder.color = color;
         }
 
         public void ShowIcon(bool show)
