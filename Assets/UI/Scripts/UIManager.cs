@@ -16,6 +16,7 @@ namespace GameUI
         public List<CharacterInfo> characterInfo = new List<CharacterInfo>();
 
         bool actionSelected = false;
+        public bool tossSelected = false;
         Tag currentTag = null;
         ExistingFood currentFood = null;
         public void OpenMenu()
@@ -32,6 +33,16 @@ namespace GameUI
         public void FoodButtonClicked(Tag tag, ExistingFood food)
         {
             currentTag = tag;
+            currentFood = food;
+            actionSelected = true;
+            tossSelected = false;
+            CloseMenu();
+        }
+
+        public void TossFood(ExistingFood food)
+        {
+            currentTag = null;
+            tossSelected = true;
             currentFood = food;
             actionSelected = true;
             CloseMenu();

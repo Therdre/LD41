@@ -9,6 +9,8 @@ namespace GameUI
     public class ActionMenu : Menu
     {
         public StationMenu stationsMenu = null;
+        public TossMenu tossMenu = null;
+        ContextMenuButton tossButton = null;
 
         public override void CreateButtons()
         {
@@ -28,7 +30,9 @@ namespace GameUI
         {
             ContextMenuButton newButton = Instantiate(buttonInstance, buttonsRoot.transform);
             newButton.gameObject.SetActive(true);
-            newButton.buttonText.text = "Plate";
+            newButton.onHover.AddListener(TossOpenMenu);
+            newButton.buttonText.text = "Toss";
+            tossButton = newButton;
         }
 
         string TagTypeToString(TagType tagType)
@@ -50,8 +54,17 @@ namespace GameUI
 
         public override void OpenNextMenu(Tag selectedTag)
         {
+            tossMenu.Close();
             stationsMenu.Open();
             stationsMenu.ActivateButtons(selectedTag);
+        }
+            
+
+        public  void TossOpenMenu(Tag selectedTag)
+        {
+            tossMenu.Open();
+            tossMenu.ActivateButtons(selectedTag);
+            stationsMenu.Close();
         }
 
         public override void CloseNextMenu()
@@ -63,6 +76,7 @@ namespace GameUI
         {
             base.Close();
             stationsMenu.Close();
+            tossMenu.Close();
 
         }
     }

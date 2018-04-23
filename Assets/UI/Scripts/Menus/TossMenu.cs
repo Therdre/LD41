@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using FoodNameSpace;
 using FoodNameSpace.Tags;
-using UnityEngine.UI;
-using System.Linq;
 
 namespace GameUI
 {
-    public class FoodMenu : Menu
+    public class TossMenu : Menu
     {
 
         public int instancesPerButton = 8;
@@ -28,7 +26,7 @@ namespace GameUI
 
         public void OnButtonClick(Tag tag, ExistingFood food)
         {
-            UIManager.Instance.FoodButtonClicked(tag, food);
+            UIManager.Instance.TossFood(food);
         }
 
         public void AddButton(Tag tag, string name, bool active, Food food)
@@ -44,17 +42,15 @@ namespace GameUI
 
         public override void ActivateButtons(Tag tagToActivate)
         {
-            
-
             //deactivate all buttons first
             for (int i = 0; i < buttons.Count; ++i)
             {
                 buttons[i].gameObject.SetActive(false);
             }
 
-            List<ExistingFood> availableFood = FoodInventory.Instance.GetAvailableFood(tagToActivate);
-            availableFood = availableFood.OrderByDescending(x => x.GetTags().Count).ToList();
-            for (int i=0;i< availableFood.Count;++i)
+            List<ExistingFood> availableFood = FoodInventory.Instance.GetAllInvetoryFood();
+            availableFood = availableFood.FindAll(x=>x.GetTags().Count>0);
+            for (int i = 0; i < availableFood.Count; ++i)
             {
                 buttons[i].associatedTag = tagToActivate;
                 buttons[i].associatedFood = availableFood[i];

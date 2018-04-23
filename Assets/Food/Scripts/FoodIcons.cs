@@ -27,4 +27,9 @@ public class FoodIcons : MonoBehaviour
         }
     }
 
+    public ExistingFood GetExistingFood()
+    {
+        return associatedFood;
+    }
+
 }

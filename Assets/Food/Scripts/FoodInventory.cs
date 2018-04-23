@@ -70,14 +70,19 @@ namespace FoodNameSpace
             {
                 ExistingFood food = foodInventory.Find(x => x.EqualAs(ingredients[i]));
                 RemoveFood(food);
+                RemoveFoodFromDisplay(food);
             }
         }
 
-        public void RemoveFood(ExistingFood food)
+        public void RemoveFood(ExistingFood food, bool removeFromDisplay=false)
         {
             if (food == null)
                 return;
 
+            if (removeFromDisplay)
+            {
+                RemoveFoodFromDisplay(food);
+            }
             if (food.GetTags().Count > 0)
             {
                 inventorySize--;
@@ -105,6 +110,15 @@ namespace FoodNameSpace
         public List<ExistingFood> GetAllInvetoryFood()
         {
             return foodInventory;
+        }
+
+        public void RemoveFoodFromDisplay(ExistingFood food)
+        {
+            FoodIcons availableSpace= inventoryDisplay.Find(x => x.gameObject.activeSelf && x.GetExistingFood()==food);
+            if(availableSpace)
+            {
+                availableSpace.gameObject.SetActive(false);
+            }
         }
 
         public void DisplayFood(ExistingFood food)

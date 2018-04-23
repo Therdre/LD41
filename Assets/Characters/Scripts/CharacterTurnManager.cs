@@ -74,42 +74,22 @@ namespace CharacterNameSpace
                     yield return new WaitForFixedUpdate();
                 }
 
+                UIManager.Instance.CloseMenu();
                 if (recipeTimer.IsTimerRunning())
                 {
-                    UIManager.Instance.CloseMenu();
+                    
                     //2)Perform character action
-
                     Tag tag = UIManager.Instance.GetCurrentTag();
                     ExistingFood food = UIManager.Instance.GetCurrentFood();
-                    characters[i].SetIcon(food.GetFoodType().GetIcon(tag));
 
-                    //walk to station with item
-                    yield return StartCoroutine(characters[i].MoveTo(fridge.gameObject.transform.position));
-                    if (cookingStationAnimator != null)
+                    if (!UIManager.Instance.tossSelected)
                     {
-                        cookingStationAnimator.SetTrigger("OpenFridge");
-                    }                    
-                    yield return new WaitForSeconds(1f);
-                    characters[i].ShowIcon(true);
-                    characters[i].ShowPlateIcon(false);
-
-                    //select station
-                    CookingStation station = SelectCookingStation(tag);
-                    yield return StartCoroutine(characters[i].MoveTo(station.gameObject.transform.position));
-                    if (cookingStationAnimator != null)
-                    {
-                        if (station.animatorTrigger.Length > 0)
-                        {
-                            cookingStationAnimator.SetTrigger(station.animatorTrigger);
-                        }
+                        yield return StartCoroutine(CharacterCooking(characters[i], tag, food));
                     }
-
-                    yield return new WaitForSeconds(1f);
-                    characters[i].SetPlateIcon(tag.plateIcon);
-                    characters[i].ShowPlateIcon(true);
-                    yield return StartCoroutine(characters[i].MoveToOriginalPosition());
-                    FoodInventory.Instance.AddFood(tag, food);
-                    characters[i].ShowIcon(false);
+                    else
+                    {
+                        FoodInventory.Instance.RemoveFood(food,true);
+                    }
                 }
 
                 if(!recipeTimer.IsTimerRunning())
@@ -129,6 +109,64 @@ namespace CharacterNameSpace
             turnPlaying = false;
         }
 
+        IEnumerator CharacterCooking(Character character,Tag tag, ExistingFood food)
+        {           
+
+            //walk to fridge
+            if (food.GetTags().Count == 0)
+            {
+                yield return StartCoroutine(character.MoveTo(fridge.gameObject.transform.position));
+                if (cookingStationAnimator != null)
+                {
+                    cookingStationAnimator.SetTrigger("OpenFridge");
+                }
+                yield return new WaitForSeconds(1f);
+                character.SetIcon(food.GetFoodType().GetIcon(null));
+            }
+            //remove from the display and just walk directly to station
+            else
+            {
+                FoodInventory.Instance.RemoveFoodFromDisplay(food);
+                character.SetIcon(food.GetFoodType().GetIcon(food.GetTagOfType(TagType.CUT)));
+
+                Tag cookTag = food.GetTagOfType(TagType.COOKED);
+                if (cookTag != null)
+                {
+                    character.SetPlateIcon( cookTag.plateIcon);
+                }
+                else
+                {
+                    character.SetPlateIcon( null);
+                }
+
+            }
+
+            character.ShowIcon(true);
+            character.ShowPlateIcon(false);
+            
+            //select station
+            CookingStation station = SelectCookingStation(tag);
+            yield return StartCoroutine(character.MoveTo(station.gameObject.transform.position));
+            if (cookingStationAnimator != null)
+            {
+                if (station.animatorTrigger.Length > 0)
+                {
+                    cookingStationAnimator.SetTrigger(station.animatorTrigger);
+                }
+            }
+
+            yield return new WaitForSeconds(1f);
+            if (tag.tagType == TagType.CUT)
+            {
+                character.SetIcon(food.GetFoodType().GetIcon(tag));
+            }
+
+            character.SetPlateIcon(tag.plateIcon);
+            character.ShowPlateIcon(true);
+            yield return StartCoroutine(character.MoveToOriginalPosition());
+            FoodInventory.Instance.AddFood(tag, food);
+            character.ShowIcon(false);
+        }
         IEnumerator AOEDamage(int damage, float time)
         {
             float currentTime = 0.0f;

@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5519c03b5db1944bc891c9e6b13d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0.7
+  velocity: 1.5
   originalPosition: {x: 0, y: 0, z: 0}
   iconPlaceholder: {fileID: 212388730358234010}
   plateIconPlaceholder: {fileID: 212596704882605772}
