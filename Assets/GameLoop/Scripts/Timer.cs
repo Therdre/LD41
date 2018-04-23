@@ -17,6 +17,11 @@ public class Timer : MonoBehaviour
         timeDisplay.maxValue = time;
         timeText = timeDisplay.gameObject.GetComponentInChildren<Text>();
     }
+    public void SetTime(float time)
+    {
+        timeDisplay.maxValue = time;
+        this.time = time;
+    }
 
     public void ResetTimer()
     {
@@ -24,6 +29,10 @@ public class Timer : MonoBehaviour
         StartCoroutine(StartTimer());
     }
 
+    public void StopTimer()
+    {
+        StopAllCoroutines();
+    }
     IEnumerator StartTimer()
     {
         timerRunning = true;

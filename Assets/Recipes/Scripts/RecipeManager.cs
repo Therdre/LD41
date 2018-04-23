@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameUI;
+using CharacterNameSpace;
 namespace FoodNameSpace
 {
     public class RecipeManager : Singleton<RecipeManager>
@@ -10,6 +11,8 @@ namespace FoodNameSpace
         public RecipeGenerator recipeGenerator = null;
         public AudioSource recipeCompleted = null;
         bool isRecipeBeingMade = false;
+        public int completedRecipes = 0;
+        
         Recipe currentRecipe = null;
         RecipeDisplay recipeDisplay = null;
         /*private void Update()
@@ -45,7 +48,6 @@ namespace FoodNameSpace
             return isRecipeBeingMade;
         }
 
-
         public IEnumerator UpateRecipeStatus()
         {
             if (currentRecipe != null)
@@ -61,7 +63,8 @@ namespace FoodNameSpace
             if (currentRecipe.IsCompleted())
             {
                 yield return new WaitForSeconds(0.5f);
-                if(recipeCompleted!=null)
+                completedRecipes++;
+                if (recipeCompleted!=null)
                 {
                     recipeCompleted.Play();
                 }
@@ -70,6 +73,7 @@ namespace FoodNameSpace
                     recipeDisplay.gameObject.SetActive(false);
                 }
                 FoodInventory.Instance.RemoveRecipeIngredients(currentRecipe);
+                CharacterTurnManager.Instance.DecreaseTimer();
                 isRecipeBeingMade = false;
             }
             
@@ -83,6 +87,14 @@ namespace FoodNameSpace
                 recipeDisplay.gameObject.SetActive(false);
             }
             isRecipeBeingMade = false;
+        }
+
+        public void ResetGame()
+        {
+            completedRecipes = 0;
+            isRecipeBeingMade = false;
+            //currentRecipe = null;
+            //recipeDisplay = null;
         }
     }
 }

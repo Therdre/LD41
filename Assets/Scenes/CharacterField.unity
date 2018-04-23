@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeGenerator: {fileID: 725056349}
   recipeCompleted: {fileID: 561851678}
+  completedRecipes: 0
 --- !u!1 &71517342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +4650,8 @@ MonoBehaviour:
   recipeTimer: {fileID: 619595520}
   stressLossDamage: 10
   damageChance: 0.3
+  initialRecipeTime: 60
+  minRecipeTime: 5
   fridge: {fileID: 1437998070}
   cookingStations:
   - {fileID: 1581681816}

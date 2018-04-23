@@ -132,5 +132,16 @@ namespace FoodNameSpace
             availableSpace.gameObject.SetActive(true);
 
         }
+
+        public void ResetGame()
+        {
+            foodInventory.Clear();
+            PopulateRawFood();
+
+            for (int i = 0; i < inventoryDisplay.Count; ++i)
+            {
+                inventoryDisplay[i].gameObject.SetActive(false);
+            }
+        }
     }
 }

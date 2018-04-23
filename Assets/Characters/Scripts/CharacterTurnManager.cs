@@ -10,7 +10,7 @@ using StationsNamespace;
 namespace CharacterNameSpace
 {
     //shoudl this be technically the turn manager?
-    public class CharacterTurnManager : MonoBehaviour
+    public class CharacterTurnManager : Singleton<CharacterTurnManager>
     {
         public Character[] characters = null;
         public float delayBetweenTurns = 2.0f;
@@ -19,23 +19,28 @@ namespace CharacterNameSpace
         [Header("Playgame stuff")]
         public int stressLossDamage = 5;
         public float damageChance = 0.3f;
+
+        public float initialRecipeTime = 30f;
+        public float minRecipeTime = 5f;
         [Header("Temp")]
         public GameObject fridge = null;
         public List<CookingStation> cookingStations = new List<CookingStation>();
         public Animator cookingStationAnimator = null;
 
         bool turnPlaying = false;
-
+        bool done = false;
+        float currentTimer = 0.0f;
         private void Start()
         {
             for (int i = 0; i < characters.Length; ++i)
             {
                 characters[i].SetCharacterDisplay(UIManager.Instance.GetCharacterInfo(i));
             }
+            currentTimer = initialRecipeTime;
         }
         private void Update()
         {
-            if (!turnPlaying)
+            if (!turnPlaying && !done && MainMenu.Instance.gameStarted)
                 StartCoroutine(PlayTurn());
         }
 
@@ -68,6 +73,7 @@ namespace CharacterNameSpace
                     yield return StartCoroutine(RecipeManager.Instance.UpateRecipeStatus());
                     if(RecipeManager.Instance.AreRecipesPending())
                     {
+                        
                         recipeTimer.ResetTimer();
                     }
                 }
@@ -111,8 +117,24 @@ namespace CharacterNameSpace
 
             }
             //yield return new WaitForSeconds(delayBetweenTurns);
+            //check if we are done with the game
+            done = true;
+            for (int i = 0; i < characters.Length; ++i)
+            {
+                characters[i].CheckIfKO();
+                if (characters[i].characterStress > 0)
+                {
+                    
+                    done =false;
+                }
+            }
+            if(done)
+            {
+                MainMenu.Instance.ShowScoreScreen(RecipeManager.Instance.completedRecipes);
+            }
             turnPlaying = false;
         }
+
 
         IEnumerator CharacterCooking(Character character,Tag tag, ExistingFood food)
         {           
@@ -257,6 +279,29 @@ namespace CharacterNameSpace
             {
                 characters[i].SetStress(targetStress[i]);
             }*/
+        }
+
+        public void ResetGame()
+        {
+            for (int i = 0; i < characters.Length; ++i)
+            {
+                characters[i].ResetInfo();
+            }
+            done = false;
+            turnPlaying = false;
+            currentTimer = initialRecipeTime;
+            recipeTimer.SetTime(currentTimer);
+        }
+
+        public void DecreaseTimer()
+        {
+            
+            currentTimer -= 5.0f;
+            if (currentTimer < minRecipeTime)
+            {
+                currentTimer = minRecipeTime;
+            }
+            recipeTimer.SetTime(currentTimer);
         }
     }
 }

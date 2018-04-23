@@ -189,5 +189,11 @@ namespace CharacterNameSpace
             }
             SetStress(characterStress - damage);
         }
+
+        public void ResetInfo()
+        {
+            SetStress(100);            
+            animator.SetTrigger("Idle");
+        }
     }
 }
