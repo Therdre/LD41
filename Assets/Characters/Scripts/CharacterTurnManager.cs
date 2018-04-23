@@ -15,6 +15,10 @@ namespace CharacterNameSpace
         public Character[] characters = null;
         public float delayBetweenTurns = 2.0f;
         public Timer recipeTimer = null;
+
+        [Header("Playgame stuff")]
+        public int stressLossDamage = 5;
+        public float damageChance = 0.3f;
         [Header("Temp")]
         public GameObject fridge = null;
         public List<CookingStation> cookingStations = new List<CookingStation>();
@@ -54,6 +58,7 @@ namespace CharacterNameSpace
             {
                 if(characters[i].characterStress==0)
                 {
+                    characters[i].CheckIfKO();
                     continue;
                 }
                 //do this check first in case the 
@@ -102,7 +107,7 @@ namespace CharacterNameSpace
                 {
                     yield return StartCoroutine(RecipeManager.Instance.UpateRecipeStatus());
                 }
-                
+                characters[i].CheckIfKO();
 
             }
             //yield return new WaitForSeconds(delayBetweenTurns);
@@ -155,16 +160,55 @@ namespace CharacterNameSpace
                 }
             }
 
-            yield return new WaitForSeconds(1f);
-            if (tag.tagType == TagType.CUT)
+            yield return new WaitForSeconds(0.8f);
+
+            //check for hit/miss chance
+            float chance = UnityEngine.Random.value;
+            bool miss = false;
+            bool damage = false;
+            //miss
+            float characterMissChance = character.GetMissChance();
+            if (chance<= characterMissChance)
             {
-                character.SetIcon(food.GetFoodType().GetIcon(tag));
+                miss = true;
+                
+            }
+            else
+            {
+                chance = UnityEngine.Random.value;
+                damage = chance <= damageChance;
             }
 
-            character.SetPlateIcon(tag.plateIcon);
-            character.ShowPlateIcon(true);
+            if (!damage)
+            {
+                character.PlayOutComeEffect(miss);
+            }
+            else
+            {
+                character.Damaged(stressLossDamage);
+            }
+            yield return new WaitForSeconds(0.2f);
+
+            if (!miss)
+            {
+                if (tag.tagType == TagType.CUT)
+                {
+                    character.SetIcon(food.GetFoodType().GetIcon(tag));
+                }
+
+                character.SetPlateIcon(tag.plateIcon);
+                character.ShowPlateIcon(true);
+            }
             yield return StartCoroutine(character.MoveToOriginalPosition());
-            FoodInventory.Instance.AddFood(tag, food);
+
+            if (!miss)
+            {
+                FoodInventory.Instance.AddFood(tag, food);
+            }
+            else if(food.GetTags().Count>0)
+            {
+                FoodInventory.Instance.DisplayFood(food);
+            }
             character.ShowIcon(false);
         }
         IEnumerator AOEDamage(int damage, float time)
@@ -184,20 +228,35 @@ namespace CharacterNameSpace
                 targetStress.Add(target);
             }
 
-            while (currentTime < time)
+
+            //while (currentTime < time)
+            int damageApplied = 0;
+            
+            while (damageApplied<damage)
             {
                 for (int i = 0; i < characters.Length; ++i)
                 {
-                    characters[i].SetStress((int)Mathf.Lerp((float)targetStress[i], (float)targetStress[i], currentTime / time));
+                    //characters[i].SetStress((int)Mathf.Lerp((float)targetStress[i], (float)targetStress[i], currentTime / time));
+                    if (damageApplied == 0)
+                    {
+                        characters[i].Damaged(1);
+                    }
+                    else
+                    {
+                        characters[i].Damaged(1,false);
+                    }
+
                 }
-                currentTime += Time.deltaTime;
+                //currentTime += Time.deltaTime;
+
+                damageApplied++;
                 yield return new WaitForEndOfFrame();
             }
 
-            for (int i = 0; i < characters.Length; ++i)
+            /*for (int i = 0; i < characters.Length; ++i)
             {
                 characters[i].SetStress(targetStress[i]);
-            }
+            }*/
         }
     }
 }

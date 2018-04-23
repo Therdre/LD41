@@ -13,9 +13,9 @@ namespace CharacterNameSpace.Stats
         public int minValue = 0;
         public string tooltip = "";
         
-        public virtual int MissOutCome()
+        public virtual float MissOutCome()
         {
-            return 0;
+            return 0.0f;
         }
 
         public virtual int StressLoss(int initialLoss)

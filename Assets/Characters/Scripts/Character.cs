@@ -18,10 +18,16 @@ namespace CharacterNameSpace
         [Header("Stress")]
         public int characterStress = 100;
 
+        [Header("Effects")]
+        public ParticleSystem missEffect = null;
+        public ParticleSystem okEffect = null;
+        public ParticleSystem damageEffect = null;
+
         GameUI.CharacterInfo characterDisplay = null;
         Stat[] availableStats = null;
         Stat skillStat = null;
 
+        bool isCrying = false;
         private void Awake()
         {
             availableStats = GetComponents<Stat>();
@@ -51,9 +57,14 @@ namespace CharacterNameSpace
         public void SetStress(int stress)
         {
             characterStress = stress;
+            if(characterStress<=0)
+            {
+                characterStress = 0;
+                
+            }
             if(characterDisplay!=null)
             {
-                characterDisplay.UpdateStress(stress);
+                characterDisplay.UpdateStress(characterStress);
             }
         }
         public IEnumerator MoveTo(Vector3 target)
@@ -124,6 +135,49 @@ namespace CharacterNameSpace
                 return;
 
             plateIconPlaceholder.gameObject.SetActive(show);
+        }
+
+        public float GetMissChance()
+        {
+            return skillStat.MissOutCome();
+        }
+
+        public void CheckIfKO()
+        {
+            if(characterStress<=0 && !isCrying)
+            {
+                if (animator != null)
+                {
+                    animator.SetTrigger("Cry");
+                    isCrying = true;
+                }
+            }
+        }
+        public void PlayOutComeEffect(bool miss)
+        {
+            if(miss)
+            {
+                if(missEffect!=null)
+                {
+                    missEffect.Play();
+                }
+            }
+            else
+            {
+                if(okEffect!=null)
+                {
+                    okEffect.Play();
+                }
+            }
+        }
+
+        public void Damaged(int damage, bool playEffect=true)
+        {
+            if (damageEffect != null && playEffect)
+            {
+                damageEffect.Play();
+            }
+            SetStress(characterStress - damage);
         }
     }
 }

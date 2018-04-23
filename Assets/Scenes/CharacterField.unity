@@ -3822,6 +3822,8 @@ MonoBehaviour:
   - {fileID: 1000516130}
   delayBetweenTurns: 2
   recipeTimer: {fileID: 619595520}
+  stressLossDamage: 10
+  damageChance: 0.3
   fridge: {fileID: 1437998070}
   cookingStations:
   - {fileID: 1581681816}
