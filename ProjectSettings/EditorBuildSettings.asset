@@ -4,4 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 574474dce30767345800bc38ff737fb0
+  - enabled: 1
+    path: Assets/Scenes/CookingStations.unity
+    guid: 91bb2e4ee0c9d044fb0704a658eb9802
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: 609db8f3de536c046bc51d8e1a50fd3d
+  - enabled: 1
+    path: Assets/Scenes/EnvironmentArt.unity
+    guid: 60430c77693bf2f4d89d26647d66869c
+  - enabled: 1
+    path: Assets/Scenes/CharacterField.unity
+    guid: 8dc7837c2cae56143af4852032417da8

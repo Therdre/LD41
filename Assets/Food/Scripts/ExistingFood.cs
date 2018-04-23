@@ -35,6 +35,19 @@ namespace FoodNameSpace
             }
         }
 
+        public bool EqualAs(ExistingFood other)
+        {
+            if (!IsFoodType(other) || other.tagsAdded.Count!=tagsAdded.Count)
+                return false;
+
+            for (int i = 0; i < other.tagsAdded.Count; ++i)
+            {
+                if (!HasTag(other.tagsAdded[i]))
+                    return false;
+            }
+            return true;
+        }
+
         public bool TagTypeExists(Tags.TagType type)
         {
             return tagsAdded.Exists(x => x.tagType == type);
@@ -51,6 +64,10 @@ namespace FoodNameSpace
 
         public bool HasTags(ExistingFood other, Tag tag)
         {
+            if(other.tagsAdded.Count+1 != tagsAdded.Count)
+            {
+                return false;
+            }
             for (int i = 0; i < other.tagsAdded.Count; ++i)
             {
                 if (!HasTag(other.tagsAdded[i]))

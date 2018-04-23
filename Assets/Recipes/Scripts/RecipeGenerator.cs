@@ -42,9 +42,10 @@ namespace FoodNameSpace
             RecipeIngredient ingredient = new RecipeIngredient(food);
             
             int numberTags= Enum.GetNames(typeof(TagType)).Length;
+            int tagsAdded = 0;
             for (int i=0;i<numberTags;++i)
             {
-                if(Chance(0.5f))
+                if(Chance(0.5f) || (i==numberTags-1 && tagsAdded==0))
                 {
                     Tag tagToAdd=availableTags.GetRandomTagOfType((TagType)i);
 
@@ -57,6 +58,7 @@ namespace FoodNameSpace
                     {
                         ingredient.AddTag(tagToAdd);
                     }*/
+                    tagsAdded++;
                     ingredient.AddTag(tagToAdd);
                 }
             }

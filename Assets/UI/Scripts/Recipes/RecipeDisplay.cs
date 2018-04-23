@@ -13,6 +13,7 @@ namespace GameUI
         public Text title = null;
         public IngredientDisplay ingredientsInstance = null;
 
+        Recipe associatedRecipe = null;
         List<IngredientDisplay> ingredientsDisplay = new List<IngredientDisplay>();
         void Start()
         {
@@ -37,6 +38,7 @@ namespace GameUI
 
         public void Display(Recipe recipe)
         {
+            associatedRecipe = recipe;
             if (ingredientsDisplay.Count == 0)
             {
                 int numberTags = Enum.GetNames(typeof(FoodType)).Length;
@@ -55,6 +57,18 @@ namespace GameUI
             {
                 ingredientsDisplay[i].DisplayIngredient(ingredients[i]);
                 ingredientsDisplay[i].gameObject.SetActive(true);
+            }
+        }
+
+        public void UpdateCompletedDisplay()
+        {
+            if (associatedRecipe == null)
+                return;
+
+            List<RecipeIngredient> ingredients = associatedRecipe.ingredientesList;
+            for (int i = 0; i < ingredients.Count; ++i)
+            {
+                ingredientsDisplay[i].SetCompletedDisplay(ingredients[i].ingredientCompleted);
             }
         }
     }

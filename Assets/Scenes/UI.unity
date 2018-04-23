@@ -6262,7 +6262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 121502962}
-  recipeDisplays: []
+  recipeDisplays:
+  - {fileID: 752825659}
 --- !u!4 &651490863
 Transform:
   m_ObjectHideFlags: 0

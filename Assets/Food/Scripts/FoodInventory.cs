@@ -52,11 +52,40 @@ namespace FoodNameSpace
             }
         }
 
+        public void RemoveRecipeIngredients(Recipe recipe)
+        {
+            List<RecipeIngredient> ingredients = recipe.ingredientesList;
+
+            for(int i=0;i<ingredients.Count;++i)
+            {
+                ExistingFood food = foodInventory.Find(x => x.EqualAs(ingredients[i]));
+                RemoveFood(food);
+            }
+        }
+
+        public void RemoveFood(ExistingFood food)
+        {
+            if (food == null)
+                return;
+
+            food.DecreaseQuantity();
+
+            if (food.GetQuantity() <= 0)
+            {
+                foodInventory.Remove(food);
+            }
+        }
+
         public List<ExistingFood> GetAvailableFood(Tag tag)
         {
             List<ExistingFood> availableFood = foodInventory.FindAll(x => !x.TagTypeExists(tag.tagType));
             
             return availableFood;
+        }
+
+        public List<ExistingFood> GetAllInvetoryFood()
+        {
+            return foodInventory;
         }
     }
 }

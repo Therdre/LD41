@@ -32,12 +32,19 @@ namespace CharacterNameSpace
             if (characters == null)
                 yield break;
 
-            yield return new WaitForSeconds(delayBetweenTurns);
+            
             //should be sorting characters first per skill
             characters = characters.OrderByDescending(x => x.Speed).ToArray();
 
             for (int i = 0; i < characters.Length; ++i)
             {
+                //do this check first in case the 
+                while(!RecipeManager.Instance.AreRecipesPending())
+                {
+                    RecipeManager.Instance.GenerateRecipe();
+                    yield return StartCoroutine(RecipeManager.Instance.UpateRecipeStatus());
+                }
+
                 //1)select action, for now we are just gonna move
                 UIManager.Instance.OpenMenu();
                 while(!UIManager.Instance.WasActionSelected())
@@ -61,7 +68,10 @@ namespace CharacterNameSpace
                 FoodInventory.Instance.AddFood(tag, food);
                 characters[i].ShowIcon(false);
 
+                yield return StartCoroutine(RecipeManager.Instance.UpateRecipeStatus());
+
             }
+            //yield return new WaitForSeconds(delayBetweenTurns);
             turnPlaying = false;
         }
     }

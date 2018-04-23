@@ -690,6 +690,9 @@ MonoBehaviour:
   tagsParent: {fileID: 1320490895794258}
   tagsInstance: {fileID: 114548479654229406, guid: 1e9f0c02c19f74b4c8050577873c3e80,
     type: 2}
+  color: {fileID: 114570253086176376}
+  completedTag: {r: 0.03292603, g: 0.6397059, b: 0.13754328, a: 1}
+  incompletedTag: {r: 0.62508357, g: 0.6764706, b: 0.14424741, a: 1}
 --- !u!114 &114728812442126318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114335358715817536}
+  color: {fileID: 0}
+  completedTag: {r: 1, g: 1, b: 1, a: 1}
+  incompletedTag: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &114873763492768570
 MonoBehaviour:
   m_ObjectHideFlags: 1

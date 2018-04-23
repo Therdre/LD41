@@ -14,6 +14,11 @@ namespace GameUI
         public GameObject tagsParent = null;
         public TagDisplay tagsInstance = null;
 
+        [Header("Completed/Incomplete recipe")]
+        public Image color = null;
+        public Color completedTag = new Color(1f, 1f, 1f, 1f);
+        public Color incompletedTag = new Color(1f, 1f, 1f, 1f);
+
         List<TagDisplay> tags = new List<TagDisplay>();
         private void Start()
         {
@@ -55,6 +60,29 @@ namespace GameUI
                 tags[i].gameObject.SetActive(true);
             }
 
+        }
+
+        public void SetCompletedDisplay(bool completed)
+        {
+            if (completed)
+            {
+                if (color != null)
+                {
+                    color.color = completedTag;
+                }
+            }
+            else
+            {
+                if (color != null)
+                {
+                    color.color = incompletedTag;
+                }
+            }
+
+            for (int i = 0; i < tags.Count; ++i)
+            {
+                tags[i].SetCompleted(completed);
+            }
         }
     }
 }
