@@ -63,9 +63,9 @@ namespace CharacterNameSpace
         public void SetStress(int stress)
         {
             characterStress = stress;
-            if(characterStress<=0)
+            if(characterStress>=100)
             {
-                characterStress = 0;
+                characterStress = 100;
                 
             }
             if(characterDisplay!=null)
@@ -150,7 +150,7 @@ namespace CharacterNameSpace
 
         public void CheckIfKO()
         {
-            if(characterStress<=0 && !isCrying)
+            if(characterStress>=100 && !isCrying)
             {
                 if (animator != null)
                 {
@@ -187,12 +187,12 @@ namespace CharacterNameSpace
                 damageEffect.Play();
                 damageSound.Play();
             }
-            SetStress(characterStress - damage);
+            SetStress(characterStress + damage);
         }
 
         public void ResetInfo()
         {
-            SetStress(100);            
+            SetStress(0);            
             animator.SetTrigger("Idle");
         }
     }

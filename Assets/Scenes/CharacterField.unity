@@ -5081,7 +5081,7 @@ MonoBehaviour:
   stressLossDamage: 25
   damageChance: 0.3
   aoeDamange: 10
-  initialRecipeTime: 90
+  initialRecipeTime: 75
   minRecipeTime: 10
   fridge: {fileID: 1437998070}
   cookingStations:

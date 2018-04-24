@@ -62,7 +62,7 @@ namespace CharacterNameSpace
 
             for (int i = 0; i < characters.Length; ++i)
             {
-                if(characters[i].characterStress==0)
+                if(characters[i].characterStress>=100)
                 {
                     characters[i].CheckIfKO();
                     continue;
@@ -123,7 +123,7 @@ namespace CharacterNameSpace
             for (int i = 0; i < characters.Length; ++i)
             {
                 characters[i].CheckIfKO();
-                if (characters[i].characterStress > 0)
+                if (characters[i].characterStress < 100)
                 {
                     
                     done =false;
@@ -244,10 +244,10 @@ namespace CharacterNameSpace
             for (int i = 0; i < characters.Length; ++i)
             {
                 initialStress.Add(characters[i].characterStress);
-                int target = characters[i].characterStress - damage;
-                if(target < 0)
+                int target = characters[i].characterStress + damage;
+                if(target >100)
                 {
-                    target = 0;
+                    target = 100;
                 }
                 targetStress.Add(target);
             }

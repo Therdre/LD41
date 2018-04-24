@@ -379,7 +379,7 @@ MonoBehaviour:
   maxValue: 100
   minValue: 0
   tooltip: 
-  missChanceRanges: {x: 0.01, y: 0.2, z: 0}
+  missChanceRanges: {x: 0.01, y: 0.15, z: 0}
 --- !u!114 &114707098871666112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,7 +396,7 @@ MonoBehaviour:
   iconPlaceholder: {fileID: 212388730358234010}
   plateIconPlaceholder: {fileID: 212596704882605772}
   animator: {fileID: 95295258735419758}
-  characterStress: 100
+  characterStress: 0
   missEffect: {fileID: 198525636218877142}
   okEffect: {fileID: 198241157123407598}
   damageEffect: {fileID: 198045719635257488}
